@@ -1,0 +1,21 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+{
+	"name": "Remote-dev Project",
+	"dockerComposeFile": [
+		"docker-compose.yml"
+	],
+	"workspaceFolder": "/workspace",
+	"service": "php",
+	"extensions": [
+		"editorconfig.editorconfig",
+		"onecentlin.laravel-extension-pack",
+		"bmewburn.vscode-intelephense-client",
+		"neilbrayfield.php-docblocker",
+		"xdebug.php-debug"
+	],
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "root"
+}

@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  php:
+    build: ./docker/php
+    volumes:
+      - ../:/workspace:cached
+    environment:
+      DB_HOST: db
+
+  nginx:
+    image: nginx
+    ports:
+      - 8000:80
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ../:/workspace:cached
+    depends_on:
+      - php
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: laravel
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
